@@ -81,6 +81,7 @@ import kotlinx.coroutines.withContext
 
 /** 浮层路由：总结页和回收站不属于任何一个 tab，盖在 tab 之上。 */
 private const val OVERLAY_TRASH = "trash"
+private const val OVERLAY_INFO = "info"
 private const val OVERLAY_SUMMARY_PREFIX = "summary:"
 
 private fun summaryRoute(id: String) = OVERLAY_SUMMARY_PREFIX + id
@@ -291,7 +292,8 @@ fun BlindWalkRoot() {
                         onBlur = { paperStore.setBlur(it) },
                         onTheme = { paperStore.setThemeMode(it) },
                         onGlass = { paperStore.setGlass(it) },
-                        onAccentFromWallpaper = { paperStore.setAccentFromWallpaper(it) }
+                        onAccentFromWallpaper = { paperStore.setAccentFromWallpaper(it) },
+                        onOpenInfo = { overlay = OVERLAY_INFO }
                     )
                 }
                 }
@@ -307,6 +309,7 @@ fun BlindWalkRoot() {
         ) {
             when {
                 lastOverlay == OVERLAY_TRASH -> TrashScreen(onDone = { overlay = "" })
+                lastOverlay == OVERLAY_INFO -> com.blindwalk.app.ui.info.InfoScreen(onDone = { overlay = "" })
                 else -> SummaryScreen(
                     sessionId = lastOverlay.removePrefix(OVERLAY_SUMMARY_PREFIX),
                     onDone = { overlay = "" }

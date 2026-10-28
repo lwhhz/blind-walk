@@ -87,7 +87,8 @@ fun PaperScreen(
     onBlur: (Int) -> Unit,
     onTheme: (ThemeMode) -> Unit,
     onGlass: (Boolean) -> Unit,
-    onAccentFromWallpaper: (Boolean) -> Unit
+    onAccentFromWallpaper: (Boolean) -> Unit,
+    onOpenInfo: () -> Unit
 ) {
     // 滑块要跟手，所以本地存一份，松手时才落到存储里。
     // 注意不要用 remember(state.veil) 直接做键：松手写回存储会改变这个键，
@@ -121,22 +122,27 @@ fun PaperScreen(
                 .padding(horizontal = 24.dp)
         ) {
         Spacer(Modifier.height(16.dp))
-        Text(
-            "窗纸",
-            fontFamily = com.blindwalk.app.ui.theme.SerifFamily,
-            fontSize = 40.sp,
-            fontWeight = FontWeight.Normal,
-            letterSpacing = 6.sp,
-            color = Ink
-        )
-        Spacer(Modifier.height(6.dp))
-        Text(
-            "换一层纸。图按屏幕比例裁好，只存在本机。",
-            fontSize = 13.sp,
-            color = Muted,
-            letterSpacing = 0.5.sp,
-            lineHeight = 20.sp
-        )
+        Row(verticalAlignment = Alignment.Top) {
+            Column(Modifier.weight(1f)) {
+                Text(
+                    "窗纸",
+                    fontFamily = com.blindwalk.app.ui.theme.SerifFamily,
+                    fontSize = 40.sp,
+                    fontWeight = FontWeight.Normal,
+                    letterSpacing = 6.sp,
+                    color = Ink
+                )
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    "换一层纸。图按屏幕比例裁好，只存在本机。",
+                    fontSize = 13.sp,
+                    color = Muted,
+                    letterSpacing = 0.5.sp,
+                    lineHeight = 20.sp
+                )
+            }
+            com.blindwalk.app.ui.info.ShushuButton(onClick = onOpenInfo)
+        }
 
         Spacer(Modifier.height(14.dp))
 
