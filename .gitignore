@@ -1,0 +1,35 @@
+# Android build outputs
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+android/.kotlin/
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 备份 / 基线快照（本地产物，不入库）
+android/.bak/
+_backup_*/
+_baseline_*/
+预览/
+
+# 第三方参考仓库（仅本地查阅）
+AndroidLiquidGlass-kmp/
+build_fonts/
+
+# 大文件与本地产物
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志
+*.log

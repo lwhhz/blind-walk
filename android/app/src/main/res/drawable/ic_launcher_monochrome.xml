@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  单色前景：供 Android 13+ 的「主题图标」使用。
+  系统会把这里的颜色统一替换成壁纸取色，所以只需保证形状可读。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:pathData="M36,72 C40,60 50,58 56,62 C64,67 68,52 72,40"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:trimPathStart="0.145"
+        android:trimPathEnd="0.855" />
+
+    <path
+        android:pathData="M31.5,72 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.6" />
+
+    <path
+        android:pathData="M68,40 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0"
+        android:fillColor="#FFFFFF" />
+</vector>
